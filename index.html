@@ -1,17 +1,207 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Уголовный кодекс штата San‑Andreas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кодексы штата San Andreas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --text: #f1f5f9;
+      --card: rgba(20, 20, 20, 0.75);
+      --hover: rgba(255, 255, 255, 0.05);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      background: url('wisp.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 0;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 28px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* Обновлённые стили кнопок */
+    .toggle-btn {
+      background: linear-gradient(135deg, #5a4de8, #3c57e8);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(58, 87, 232, 0.4);
+      transition: 
+        background 0.3s ease, 
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: none;
+    }
+
+    .toggle-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.25);
+      transform: skewX(-25deg) translateX(0);
+      transition: transform 0.7s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .toggle-btn:hover::before {
+      transform: skewX(-25deg) translateX(100%);
+    }
+
+    .toggle-btn:hover {
+      box-shadow: 0 8px 25px rgba(58, 87, 232, 0.8);
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, #6c5ce7, #3a43f8);
+      outline: none;
+    }
+
+    .toggle-btn:focus {
+      outline: 2px solid #82aaff;
+      outline-offset: 2px;
+    }
+
+    .toggle-btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(58, 87, 232, 0.6);
+    }
+
+    .section-content {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      display: none;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 0.5s ease;
+    }
+    h2 {
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-size: 26px;
+    }
+    .article {
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      background: var(--hover);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .article:hover {
+      transform: translateX(4px);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .article h3 {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .article p {
+      color: #d1d5db;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Уголовный кодекс штата San‑Andreas</h1>
-  <p>Наказание: 4 года лишения свободы или штраф в размере от 5 000$ до 15 000$.</p>
-  <p>Статья 18.6 [Военная]: Нарушение правил вождения или эксплуатации ...</p>
-  <p><a href="https://forum.majestic-rp.ru/threads/ugolovnyi-kodeks-shtata-san-andreas.2247404/">Источник на форуме</a></p>
-  <nav>
-    <a href="process.html">Процессуальный кодекс</a> |
-    <a href="ethics.html">Этический кодекс</a>
-  </nav>
+  <header><h1>Кодексы штата San Andreas</h1></header>
+  <div class="container">
+    <button class="toggle-btn" onclick="toggle('uk')">Уголовный кодекс</button>
+    <div id="uk" class="section-content">
+      <h2>Уголовный кодекс</h2>
+      <div class="article">
+        <h3>Статья 1. Общие положения</h3>
+        <p>Преступлением признаётся виновно совершённое общественно опасное деяние...</p>
+      </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggle('pk')">Процессуальный кодекс</button>
+    <div id="pk" class="section-content">
+      <h2>Процессуальный кодекс</h2>
+      <div class="article">
+        <h3>Статья 1. Презумпция невиновности</h3>
+        <p>Обвиняемый считается невиновным, пока его вина не будет доказана...</p>
+      </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggle('ek')">Этический кодекс</button>
+    <div id="ek" class="section-content">
+      <h2>Этический кодекс</h2>
+      <div class="article">
+        <h3>Статья 1. Назначение</h3>
+        <p>Регламентация поведения и формирование облика сотрудника государственных органов...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>&copy; 2025 Majestic RP — официальный сайт кодексов</footer>
+
+  <script>
+    function toggle(id) {
+      document.querySelectorAll('.section-content').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
