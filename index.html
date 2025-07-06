@@ -54,63 +54,25 @@
       animation: fadeIn 1s ease forwards;
     }
 
-    /* Обновлённые стили кнопок */
+    /* Кнопки */
     .toggle-btn {
-      background: linear-gradient(135deg, #5a4de8, #3c57e8);
-      color: white;
+      background: #3a3a3a;
+      color: #fff;
       border: none;
       padding: 14px 24px;
       margin-bottom: 20px;
-      border-radius: 12px;
+      border-radius: 10px;
       width: 100%;
       text-align: left;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 18px;
-      box-shadow: 0 4px 15px rgba(58, 87, 232, 0.4);
-      transition: 
-        background 0.3s ease, 
-        box-shadow 0.3s ease,
-        transform 0.2s ease;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: none;
+      font-weight: bold;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
-
-    .toggle-btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: -50%;
-      width: 200%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.25);
-      transform: skewX(-25deg) translateX(0);
-      transition: transform 0.7s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .toggle-btn:hover::before {
-      transform: skewX(-25deg) translateX(100%);
-    }
-
     .toggle-btn:hover {
-      box-shadow: 0 8px 25px rgba(58, 87, 232, 0.8);
-      transform: translateY(-3px);
-      background: linear-gradient(135deg, #6c5ce7, #3a43f8);
-      outline: none;
-    }
-
-    .toggle-btn:focus {
-      outline: 2px solid #82aaff;
-      outline-offset: 2px;
-    }
-
-    .toggle-btn:active {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(58, 87, 232, 0.6);
+      background: #4a4a4a;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
     }
 
     .section-content {
@@ -195,7 +157,7 @@
     </div>
   </div>
 
-  <footer>&copy; 2025 Majestic RP — официальный сайт кодексов</footer>
+  <footer>&copy; Phoenix for Merelyn</footer>
 
   <script>
     function toggle(id) {
